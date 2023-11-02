@@ -4,7 +4,8 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -13,37 +14,29 @@ import {
   Text,
   ScrollView,
   TextInput,
-  Button
+  Button,
 } from 'react-native';
 
+import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm'; 
 
 function App() {
+
+  const [tasks, setTasks] = useState([
+    'Do laundry',
+    'Go to gym',
+    'Walk dog',
+    'Test'
+  ]);
+
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  }
+
   return (
     <SafeAreaView>
-      <ScrollView>
-        <Pressable>
-          <View style={[styles.task, styles.completed]}>
-            <Text style={styles.taskText}>Do laundry</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.task]}>
-            <Text style={styles.taskText}>Go to gym</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.task, styles.completed]}>
-            <Text style={styles.taskText}>Walk dog</Text>
-          </View>
-        </Pressable>
-      </ScrollView>
-      <View style={styles.form}>
-        <TextInput
-          style={styles.input}
-          placeholder="Add a new task..."
-        />
-        <Button title="Add" />
-      </View>
+      <ToDoList tasks={ tasks } />
+      <ToDoForm addTask={ addTask } />
     </SafeAreaView>
   );
 }
@@ -78,3 +71,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+export { styles };
