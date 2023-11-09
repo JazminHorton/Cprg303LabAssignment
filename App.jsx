@@ -1,5 +1,5 @@
 /**
- * My To Do List App Lab Assignment
+ * My To Do List App Lab Assignments
  *
  * @format
  */
