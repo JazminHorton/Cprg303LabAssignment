@@ -7,6 +7,7 @@ import Footer from '../layouts/Footer';
 import ToDoList from '../components/ToDoList';
 import ToDoForm from '../components/ToDoForm';
 
+import RandomJoke from '../components/RandomJoke';
 
 function Home({navigation}) {
   const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
@@ -25,6 +26,7 @@ function Home({navigation}) {
             title="About Page"
             onPress={() => navigation.navigate('About')}
           />
+            <RandomJoke />
         </SafeAreaView>
       </MainLayout>
       <Footer />
